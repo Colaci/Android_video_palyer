@@ -33,9 +33,6 @@ public class RecordVideoActivity extends AppCompatActivity {
 
     private final static int REQUEST_PERMISSION = 0x123;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
