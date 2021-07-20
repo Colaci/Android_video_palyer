@@ -74,7 +74,7 @@ public class LoveView extends View {
 
         Matrix matrix = new Matrix();
         matrix.postScale(2.5f, 2.5f);
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.love5);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.love3);
         bitmap = Bitmap.createBitmap(bitmap, 0, 0,
                 bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }

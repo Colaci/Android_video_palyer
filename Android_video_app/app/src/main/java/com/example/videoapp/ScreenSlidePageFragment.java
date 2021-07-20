@@ -186,7 +186,7 @@ public class ScreenSlidePageFragment extends Fragment {
 
             @Override
             public void doubleClick() {
-                like.setBackgroundResource(R.mipmap.like);
+                like.setBackgroundResource(R.mipmap.like1);
                 // 点赞后标签变为like
                 like.setTag("like");
             }
@@ -205,11 +205,11 @@ public class ScreenSlidePageFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (like.getTag().toString().equals("unlike")) {
-                    like.setBackgroundResource(R.mipmap.like);
+                    like.setBackgroundResource(R.mipmap.like1);
                     like.setTag("like");
                 }
                 else {
-                    like.setBackgroundResource(R.mipmap.beforelike);
+                    like.setBackgroundResource(R.mipmap.beforelike1);
                     like.setTag("unlike");
                 }
             }
