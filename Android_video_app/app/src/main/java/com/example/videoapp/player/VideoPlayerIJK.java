@@ -3,6 +3,7 @@ package com.example.videoapp.player;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.ViewGroup;
@@ -132,6 +133,7 @@ public class VideoPlayerIJK extends FrameLayout {
         //每次都要重新创建IMediaPlayer
         createPlayer();
         AssetFileDescriptor fileDescriptor = mContext.getResources().openRawResourceFd(resourceId);
+        Log.d("能否加载",fileDescriptor+"");
         RawDataSourceProvider provider = new RawDataSourceProvider(fileDescriptor);
         mMediaPlayer.setDataSource(provider);
     }

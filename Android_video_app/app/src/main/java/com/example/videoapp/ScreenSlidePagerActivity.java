@@ -52,13 +52,14 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slide);
 
-        getData();
+        //getData();
 
         viewPager2 = findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(this);
         viewPager2.setAdapter(pagerAdapter);
         viewPager2.setOrientation(ViewPager2.ORIENTATION_VERTICAL);
 
+        getData();
         //如果是从recycler界面跳转过来，判断当前选中视频的position
         position = getIntent().getIntExtra("position",-1);
         Handler handler = new Handler();
@@ -121,28 +122,31 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
      * 获取视频数据
      */
     private void getData() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://beiyou.bytedance.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        ApiService apiService = retrofit.create(ApiService.class);
-        apiService.getVideos().enqueue(new Callback<List<VideoResponse.Video>>() {
-            @Override
-            public void onResponse(Call<List<VideoResponse.Video>> call, Response<List<VideoResponse.Video>> response) {
-                videos = response.body();
-                Log.d("retrofit", videos.toString());
-                // fragment数量
-                NUM_PAGES = videos.size();
-                //!!! 注意这里一定要声明数据改
-                pagerAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onFailure(Call<List<VideoResponse.Video>> call, Throwable t) {
-                Log.d("retrofit_error", t.getMessage());
-            }
-        });
+        videos=MyAdapter.mDataSet;
+        NUM_PAGES=videos.size();
+        pagerAdapter.notifyDataSetChanged();
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("https://beiyou.bytedance.com/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        ApiService apiService = retrofit.create(ApiService.class);
+//        apiService.getVideos().enqueue(new Callback<List<VideoResponse.Video>>() {
+//            @Override
+//            public void onResponse(Call<List<VideoResponse.Video>> call, Response<List<VideoResponse.Video>> response) {
+//                videos = response.body();
+//                Log.d("retrofit", videos.toString());
+//                // fragment数量
+//                NUM_PAGES = videos.size();
+//                //!!! 注意这里一定要声明数据改
+//                pagerAdapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<VideoResponse.Video>> call, Throwable t) {
+//                Log.d("retrofit_error", t.getMessage());
+//            }
+//        });
     }
 
 

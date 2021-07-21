@@ -25,7 +25,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private static final String TAG = "MyAdapter";
 
-    private int mNumberItems;
+    private static int mNumberItems;
 
 
     private final ListItemClickListener mOnClickListener;
@@ -43,6 +43,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
     public static void addData(VideoResponse.Video newData){
         mDataSet.add(newData);
+        mNumberItems=mDataSet.size();
     }
 
 
@@ -145,6 +146,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public void onClick(View view) {
             int clickedPosition = getAdapterPosition();
             if (mOnClickListener != null) {
+                Log.d("位置是",clickedPosition+"");
                 mOnClickListener.onListItemClick(clickedPosition);
             }
         }
