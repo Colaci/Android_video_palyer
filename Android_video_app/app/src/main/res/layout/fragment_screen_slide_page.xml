@@ -45,7 +45,7 @@
         app:lottie_scale="0.5"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/funky_chicken" />
+        app:lottie_rawRes="@raw/rolling" />
 
     <ImageView
         android:id="@+id/imagePause"

@@ -57,7 +57,6 @@ public class RecycleViewActivity extends AppCompatActivity implements MyAdapter.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycleview);
         mNumbersListView = findViewById(R.id.video_lists);
-
         StaggeredGridLayoutManager staggeredGridLayoutManager =
                 new StaggeredGridLayoutManager(2,
                         StaggeredGridLayoutManager.VERTICAL);
@@ -67,13 +66,11 @@ public class RecycleViewActivity extends AppCompatActivity implements MyAdapter.
          * change the child layout size in the RecyclerView
          */
         mNumbersListView.setHasFixedSize(true);
-
         animationLoad=findViewById(R.id.animation_load);
         /*
          * The GreenAdapter is responsible for displaying each item in the list.
          */
         mAdapter = new MyAdapter(NUM_LIST_ITEMS, this);
-
         getData();
         mNumbersListView.setAdapter(mAdapter);
         mNumbersListView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -147,7 +144,6 @@ public class RecycleViewActivity extends AppCompatActivity implements MyAdapter.
                 .baseUrl("https://beiyou.bytedance.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
 
         ApiService apiService = retrofit.create(ApiService.class);
         apiService.getVideos().enqueue(new Callback<List<VideoResponse.Video>>() {
