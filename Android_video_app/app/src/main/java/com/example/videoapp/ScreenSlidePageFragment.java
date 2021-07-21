@@ -60,6 +60,7 @@ public class ScreenSlidePageFragment extends Fragment {
     private TextView likeCount;
     private ImageButton avatar;
     private ImageButton like;
+    private ImageButton follow;
     private Button buttonPlay;
     private ImageView imagePause;
     private AnimatorSet animatorSet;
@@ -131,6 +132,7 @@ public class ScreenSlidePageFragment extends Fragment {
         background = view.findViewById(R.id.glide_background);
 
         like = view.findViewById(R.id.like);
+        follow = view.findViewById(R.id.follow);
         // 初始化未点赞状态 标签为unlike
         like.setTag("unlike");
 
@@ -212,6 +214,13 @@ public class ScreenSlidePageFragment extends Fragment {
                     like.setBackgroundResource(R.mipmap.beforelike1);
                     like.setTag("unlike");
                 }
+            }
+        });
+
+        follow.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                follow.setVisibility(View.INVISIBLE);
             }
         });
 
