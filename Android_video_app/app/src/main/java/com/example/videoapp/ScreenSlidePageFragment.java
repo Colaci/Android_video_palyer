@@ -18,6 +18,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -34,6 +36,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
+import android.widget.Toast;
 
 /**
  *
@@ -220,7 +223,9 @@ public class ScreenSlidePageFragment extends Fragment {
         follow.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                follow.setVisibility(View.INVISIBLE);
+                follow.setVisibility(View.GONE);
+                Toast ts = Toast.makeText(getActivity().getBaseContext(), "已关注",Toast.LENGTH_LONG);
+                ts.show();
             }
         });
 
