@@ -3,6 +3,7 @@ package com.example.videoapp;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -85,14 +86,23 @@ public class RecordVideoActivity extends AppCompatActivity {
 //            videoView.start();
            //录制了文件不知道放在哪里，而且不知道怎么加到mDataSet中，怎么变成VideoResponse格式
             Log.d("uri",""+intent.getData());
-            Log.d("以前有多少个",MyAdapter.mDataSet.size()+"");
+            String myUri = intent.getData().toString();
+            Uri uri = Uri.parse(myUri);
+            String[] proj = { MediaStore.Images.Media.DATA };
+            Cursor actualimagecursor = getContentResolver().query(uri,proj,null,null,null);
+            int actual_image_column_index = actualimagecursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            actualimagecursor.moveToFirst();
+            String img_path = actualimagecursor.getString(actual_image_column_index);
+
             VideoResponse.Video temp=new VideoResponse.Video();
             temp.avatar=null;
             temp.description="我的视频";
             temp.id="1";
             temp.likeCount=0;
             temp.nickname="王二";
-            temp.url=intent.getData()+"";
+//            temp.url=intent.getData()+"";
+            Log.d("djfsa",img_path);
+            temp.url=img_path;
             Toast.makeText(this,"录制成功",Toast.LENGTH_SHORT).show();
             MyAdapter.addData(temp);
             Log.d("现在有多少个",MyAdapter.mDataSet.size()+"");
