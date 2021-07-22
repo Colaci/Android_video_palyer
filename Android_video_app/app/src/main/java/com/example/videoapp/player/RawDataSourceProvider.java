@@ -12,8 +12,8 @@ import java.io.InputStream;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
 
 public class RawDataSourceProvider implements IMediaDataSource {
-    private AssetFileDescriptor mDescriptor;
 
+    private AssetFileDescriptor mDescriptor;
     private byte[] mMediaBytes;
 
     public RawDataSourceProvider(AssetFileDescriptor descriptor) {
@@ -25,15 +25,13 @@ public class RawDataSourceProvider implements IMediaDataSource {
         if (position + 1 >= mMediaBytes.length) {
             return -1;
         }
-
         int length;
         if (position + size < mMediaBytes.length) {
             length = size;
-        } else {
+        }
+        else {
             length = (int) (mMediaBytes.length - position);
-            if (length > buffer.length)
-                length = buffer.length;
-
+            if (length > buffer.length) length = buffer.length;
             length--;
         }
         System.arraycopy(mMediaBytes, (int) position, buffer, offset, length);
@@ -48,15 +46,12 @@ public class RawDataSourceProvider implements IMediaDataSource {
             InputStream inputStream = mDescriptor.createInputStream();
             mMediaBytes = readBytes(inputStream);
         }
-
         return length;
     }
 
     @Override
     public void close() throws IOException {
-        if (mDescriptor != null)
-            mDescriptor.close();
-
+        if (mDescriptor != null) mDescriptor.close();
         mDescriptor = null;
         mMediaBytes = null;
     }

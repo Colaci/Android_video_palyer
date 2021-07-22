@@ -42,18 +42,16 @@ public class RecordVideoActivity extends AppCompatActivity {
         videoView = findViewById(R.id.img);
         videoView.setMediaController(new MediaController(this));
         findViewById(R.id.btn_picture).setOnClickListener(v -> {
-            if (!checkPermissionAllGranted(mPermissionsArrays)) {
-                // 在这里申请相机、存储的权限
+            if (!checkPermissionAllGranted(mPermissionsArrays)) {// 在这里申请相机、存储的权限
                 ActivityCompat.requestPermissions(RecordVideoActivity.this,mPermissionsArrays,REQUEST_PERMISSION);
-            } else {
-                // 打开相机拍摄
+            }
+            else {// 打开相机拍摄
                 Intent takeVideoIntent=new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
                 if(takeVideoIntent.resolveActivity(getPackageManager())!=null){
                     startActivityForResult(takeVideoIntent,REQUEST_VIDEO_CAPTURE);
                 }
             }
         });
-
     }
     private String[] mPermissionsArrays = new String[]{
             Manifest.permission.CAMERA,
@@ -80,7 +78,7 @@ public class RecordVideoActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, intent);
         Log.d("在RecordVideoActivity",requestCode+""+resultCode);
         if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK) {
-           //录制了文件不知道放在哪里，而且不知道怎么加到mDataSet中，怎么变成VideoResponse格式
+            //录制了文件不知道放在哪里，而且不知道怎么加到mDataSet中，怎么变成VideoResponse格式
             Log.d("uri",""+intent.getData());
             String myUri = intent.getData().toString();
             Uri uri = Uri.parse(myUri);
@@ -97,7 +95,7 @@ public class RecordVideoActivity extends AppCompatActivity {
             temp.likeCount=0;
             temp.nickname="王二";
 //            temp.url=intent.getData()+"";
-            Log.d("djfsa",img_path);
+            Log.d("img_path",img_path);
             temp.url=img_path;
             Toast.makeText(this,"录制成功",Toast.LENGTH_SHORT).show();
             MyAdapter.addData(temp);

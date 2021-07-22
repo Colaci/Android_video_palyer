@@ -43,8 +43,8 @@
             app:layout_constraintBottom_toTopOf="@id/nickname"
             android:text="1000"
             android:textColor="@color/white"
-
         />
+
         <TextView
             android:id="@+id/nickname"
             app:layout_constraintLeft_toLeftOf="parent"

@@ -28,7 +28,6 @@ public class VideoPlayerListener implements
     @Override
     public boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i1) {
         Log.d("videoPlay", "onInfo() called" + " " + i + " " + i1);
-
         return false;
     }
 

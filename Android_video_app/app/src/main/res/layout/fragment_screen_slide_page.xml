@@ -90,10 +90,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="25dp"
         android:text="description"
         android:textColor="#FFFFFF"
-        android:textSize="15sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/textView"
         app:layout_constraintStart_toStartOf="@id/ijkPlayer" />
 
@@ -103,10 +103,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="25dp"
         android:text="nickname"
         android:textColor="#FFFFFF"
-        android:textSize="15sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@id/description"
         app:layout_constraintStart_toStartOf="@id/ijkPlayer" />
 
@@ -156,14 +156,14 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:gravity="center_horizontal"
         android:text="TextView"
         android:textAlignment="center"
+        android:gravity="center_horizontal"
         android:textColor="#FF6A6A"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/share"
-        app:layout_constraintEnd_toEndOf="@id/ijkPlayer" />
+        app:layout_constraintEnd_toEndOf="@id/ijkPlayer"/>
 
     <ImageButton
         android:id="@+id/share"

@@ -82,7 +82,7 @@ public class LoveView extends View {
     @Override
     protected void onDraw(final Canvas canvas) {
         super.onDraw(canvas);
-        // 在点击位置绘制爱心图片
+        // 在点击位置绘制图片
         canvas.drawBitmap(bitmap, posX - offSetX, posY - offSetY, paint);
     }
 
