@@ -80,10 +80,6 @@ public class RecordVideoActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, intent);
         Log.d("在RecordVideoActivity",requestCode+""+resultCode);
         if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK) {
-            // 播放刚才录制的视频
-//            videoUri =intent.getData();
-//            videoView.setVideoURI(videoUri);
-//            videoView.start();
            //录制了文件不知道放在哪里，而且不知道怎么加到mDataSet中，怎么变成VideoResponse格式
             Log.d("uri",""+intent.getData());
             String myUri = intent.getData().toString();

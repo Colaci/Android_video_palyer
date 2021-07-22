@@ -125,28 +125,6 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
         videos=MyAdapter.mDataSet;
         NUM_PAGES=videos.size();
         pagerAdapter.notifyDataSetChanged();
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl("https://beiyou.bytedance.com/")
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//
-//        ApiService apiService = retrofit.create(ApiService.class);
-//        apiService.getVideos().enqueue(new Callback<List<VideoResponse.Video>>() {
-//            @Override
-//            public void onResponse(Call<List<VideoResponse.Video>> call, Response<List<VideoResponse.Video>> response) {
-//                videos = response.body();
-//                Log.d("retrofit", videos.toString());
-//                // fragment数量
-//                NUM_PAGES = videos.size();
-//                //!!! 注意这里一定要声明数据改
-//                pagerAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<VideoResponse.Video>> call, Throwable t) {
-//                Log.d("retrofit_error", t.getMessage());
-//            }
-//        });
     }
 
 
